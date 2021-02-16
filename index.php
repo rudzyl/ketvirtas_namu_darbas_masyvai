@@ -94,7 +94,7 @@ echo 'poriniu indeksu is viso ' . count($array);
 echo '<h4>trecia uzduotis</h4>';
 
 $masyvas = [];
-$raides = "ABCD";
+$raides = ['A', 'B', 'C', 'D'];
 for($i = 0; $i < 200; $i++) {
     array_push($masyvas, $raides[rand(0, 3)]);
 }
@@ -105,7 +105,9 @@ echo '</pre>';
 echo '<h4>ketvirta uzduotis</h4>';
 
 sort($masyvas);
+echo '<pre>';
 print_r($masyvas);
+echo '</pre>';
 
 echo '<h4>penkta uzduotis</h4>';
 
@@ -128,6 +130,67 @@ for($i = 0; $i < 200; $i++) {
 print_r($naujas);
 echo '<br>';
 echo 'Is viso unikaliu reiksmiu kombinaciju: ' . count($naujas);
+
+echo '<h4>sesta uzduotis</h4>';
+
+$randomVienas = [];
+$randomDu = [];
+
+for($i = 0; $i < 100; $i++) {
+    $skaiciaiVienas = rand(100, 999);
+    array_push($randomVienas, $skaiciaiVienas);
+    $skaiciaiDu = rand(100, 999);
+    array_push($randomDu, $skaiciaiDu);
+}
+$naujasVienas = [];
+$naujasDu = [];
+foreach($randomVienas as $value) {
+    if(!in_array($value, $naujasVienas)) {
+        array_push($naujasVienas, $value);
+    }
+}
+foreach($randomDu as $value) {
+    if(!in_array($value, $naujasDu)) {
+        array_push($naujasDu, $value);
+    }
+}
+print_r($naujasVienas);
+echo '<br>' . '<br>';
+print_r($naujasDu);
+
+echo '<h4>septinta uzduotis</h4>';
+
+$atnaujintasMasyvas = array_diff($randomVienas, $randomDu);
+
+print_r($atnaujintasMasyvas);
+
+echo '<h4>astunta uzduotis</h4>';
+
+$besikartojantisMasyvas = array_intersect($randomVienas, $randomDu);
+
+print_r($besikartojantisMasyvas);
+
+echo '<h4>devinta uzduotis</h4>';
+
+$sudetasMasyvas = array_combine($randomVienas, $randomDu);
+
+print_r($sudetasMasyvas);
+
+echo '<h4>desimta uzduotis</h4>';
+$sugeneruotasMasyvas = [];
+for($i = 0; $i < 10; $i++) {
+    if ($i <= 1) {
+        $rand = rand(5, 25);
+        array_push($sugeneruotasMasyvas, $rand);
+    }
+    if ($i > 1) {
+        $suma = $sugeneruotasMasyvas[$i - 1] + $sugeneruotasMasyvas[$i - 2];
+        array_push($sugeneruotasMasyvas, $suma);
+    }
+}
+echo '<pre>';
+print_r($sugeneruotasMasyvas);
+echo '</pre>';
 
 
 // array fill
