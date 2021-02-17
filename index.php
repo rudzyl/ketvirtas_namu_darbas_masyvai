@@ -4,9 +4,10 @@
 echo '<h4>pirma uzduotis</h4>';
 
 $array = [];
-for($i = 0; $i < 30; $i++) {
-    array_push($array, rand(5, 25));
+foreach(range(1, 30) as $value) {
+    $array[] = rand(5, 25);
 }
+echo '<pre>';
 print_r($array);
 
 //nr2
