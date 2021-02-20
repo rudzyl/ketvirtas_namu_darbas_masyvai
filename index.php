@@ -8,7 +8,7 @@ foreach(range(1, 30) as $value) {
     $array[] = rand(5, 25);
 }
 echo '<pre>';
-print_r($array);
+_d($array);
 
 //nr2
 echo '<h4>antra uzduotis </h4>';
