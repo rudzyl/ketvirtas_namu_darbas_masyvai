@@ -5,7 +5,7 @@ echo '<h4>pirma uzduotis</h4>';
 $array = [];
 foreach(range(1, 10) as $index1 => $val1) {
     foreach(range(1, 5) as $index2 => $val2) {
-        $array[$index1][$index2] = rand(5, 25);
+        $array[$index1][] = rand(5, 25);
     }
 }
 _d($array);
@@ -79,23 +79,16 @@ _d($array);
 
 echo '<h4>trecia uzduotis</h4>';
 
+$az = range('A', 'Z');
  $masyvas = [];
- foreach(range(1, 3) as $index1 => $val1) {
-     foreach(range(rand(1, 3), rand(1, 3)) as $index2 => $val2) {
-         $masyvas[$index1][$index2] = chr(rand(65,90));
+ foreach(range(1, 10) as $index1 => $val1) {
+     $ilgis = rand(2, 20);
+     foreach(range(1, $ilgis) as $index2 => $val2) {
+         $masyvas[$index1][$index2] = $az[rand(0, 25)];
     }
+    sort($masyvas[$index1]);
 }
-echo '<pre>';
 _d($masyvas);
-echo '</pre>';
-
-foreach($masyvas as $arr) {
-        sort($arr);
-}
-unset($arr);
-echo '<pre>';
-_d($masyvas);
-echo '</pre>';
 
 echo '<h4>ketvirta uzduotis</h4>';
 
@@ -114,7 +107,7 @@ foreach(range(1, 30) as $index1 => $val1) {
         }
     }
 }
-_d($masyvas5);
+_dc($masyvas5);
 
 echo '<h4>sesta uzduotis</h4>';
 
